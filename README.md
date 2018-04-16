@@ -18,11 +18,19 @@ to store real contracts.
 Every party associated with the record has to **accept** it before the record becomes
 **valid**. This stands as a protection for all parties involved.
 
+## Use Cases:
+* Generally protect file (document) integrity
+* Copyright proof on files (pictures, videos, etc.)
+
 ## Record Creation
 **Creation of new record starts with providing:**
-  * Hash value of the file that is being protected (uint256)
-  * Parties associated with the record (address[])
-  * Unix Timestamp for record expiration (uint256) 
+  * Hash value of the file that is being protected (*uint256*)
+    * Hash functions in most cases return hex representation of hash value, **in order to 
+        save that hash value on this Smart Contract you need to convert that string hex representation
+        into uint256**, so basically turn 2 characters into one byte.
+    * Recommendation: use at least SHA256 as hashing function
+  * Parties associated with the record (*address[]*)
+  * Unix Timestamp for record expiration (*uint256*) 
     * current timestamp can be found at: https://www.unixtimestamp.com/
 
   * Creation of the record returns unique record ID that has to be remembered by parties
